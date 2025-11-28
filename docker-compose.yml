@@ -11,12 +11,23 @@ services:
       - server
 
   db:
-    image: postgis/postgis:16-3.5
+    image: postgis/postgis:16-3.4 # Try 3.4 instead of 3.5
+    # OR
+    # image: postgis/postgis:latest  # Use latest (may have ARM64 support)
+    # OR
+    # image: postgis/postgis:16-master  # Development builds often have ARM64
     container_name: adventurelog-db
     restart: unless-stopped
     env_file: .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+  # db:
+  #   image: postgis/postgis:16-3.5
+  #   container_name: adventurelog-db
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
 
   server:
     build: ./backend/
