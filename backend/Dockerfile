@@ -41,6 +41,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Database connection defaults
+ENV POSTGRES_USER=adventure
+ENV POSTGRES_PASSWORD=changeme123
+ENV POSTGRES_DB=database
+ENV PGHOST=db
+
 # Install runtime dependencies (including GDAL)
 RUN apt-get update && apt-get install -y --no-install-recommends \
       postgresql-client \
