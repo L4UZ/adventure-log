@@ -21,7 +21,7 @@ services:
       - "traefik.enable=true"
 
   db:
-    image: postgis/postgis:15-3.3
+    image: imresamu/postgis:15-3.3-alpine3.21  # ARM64 compatible for Raspberry Pi
     restart: unless-stopped
     environment:
       POSTGRES_DB: database
